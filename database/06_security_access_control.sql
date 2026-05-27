@@ -5,10 +5,10 @@
 ---------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 
-================================================================================
+-- ================================================================================
 -- PHASE 1: INITIAL SECURITY SETUP
 -- [EXECUTION]: MUST BE RUN AS "SYS" OR "SYSTEM" (DATABASE ADMINISTRATOR - DBA)
-================================================================================
+-- ================================================================================
 
 -- [EN] 1. Creating Database Roles
 
@@ -30,10 +30,10 @@ GRANT bank_admin TO head_manager;
 GRANT bank_teller TO teller_murad;
 
 
-================================================================================
+-- ================================================================================
 -- PHASE 2: OBJECT PRIVILEGES CONFIGURATION
 -- [EXECUTION]: MUST BE RUN AS "SCHEMA OWNER" (THE USER WHO OWNS THE TABLES/PROCEDURES)
-================================================================================
+-- ================================================================================
 
 -- -----------------------------------------------------------------------------
 -- [EN] Granting Privileges to Admin Role (Full Access inside Application Schema)
@@ -57,21 +57,21 @@ GRANT SELECT ON vw_customer_financial_summary TO bank_teller;
 GRANT EXECUTE ON prc_make_transfer TO bank_teller;
 
 
-================================================================================
+-- ================================================================================
 -- PHASE 3: PRIVILEGE REVOCATION (MAINTENANCE EXAMPLES)
 -- [EXECUTION]: RUN AS "SCHEMA OWNER" OR "SYS" DEPENDING ON PRIVILEGE TYPE
-================================================================================
+-- ================================================================================
 
 -- [EN] Revoking DELETE privilege from admin role for security auditing
 
 REVOKE DELETE ON accounts FROM bank_admin;
 
 
-=========================================================================================================================
+-- =========================================================================================================================
 -- PHASE 4: VERIFICATION & TESTING
 -- [EXECUTION]: LOG IN AS "teller_murad" OR "head_manager" TO TEST THE RESTRICTIONS
 -- 		MEHDUDIYYETLERI TEST ETMEK UCUN "teller_murad" VE YA "head_manager" KIMI SISTEME DAXIL OLMAQ LAZIMDIR
-=========================================================================================================================
+-- =========================================================================================================================
 
 -- [EN] If teller_murad tries to delete data directly, Oracle will throw ORA-01031: insufficient privileges
 
