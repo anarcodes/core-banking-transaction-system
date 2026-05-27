@@ -16,21 +16,21 @@ Sistemin verilənlər bazası modelinin sxemi və cədvəllər arası əlaqələ
 
 Layihə Oracle SQL və PL/SQL mühitində sıfırdan qurulmuşdur və 7 əsas mərhələdən ibarətdir:
 
-1. **`01_creating_tables.txt` (Data Architecture):** `currencies`, `customers`, `accounts`, `transactions` və `account_logs` cədvəllərinin yaradılması. Məlumat bütövlüyünü təmin etmək üçün `CHECK` və `FOREIGN KEY` constraint-ləri ən sərt bank standartlarına uyğun dizayn edilmişdir.
+1. **`01_creating_tables.sql` (Data Architecture):** `currencies`, `customers`, `accounts`, `transactions` və `account_logs` cədvəllərinin yaradılması. Məlumat bütövlüyünü təmin etmək üçün `CHECK` və `FOREIGN KEY` constraint-ləri ən sərt bank standartlarına uyğun dizayn edilmişdir.
 
-2. **`02_insert_datas.txt` (Data Generation):** Test mühiti üçün `DBMS_RANDOM` istifadə edilməklə 1,000 müştəri və 2,000 fərqli valyutalı (AZN, USD, EUR) bank hesabı yaradan dinamik PL/SQL skripti.
+2. **`02_insert_datas.sql` (Data Generation):** Test mühiti üçün `DBMS_RANDOM` istifadə edilməklə 1,000 müştəri və 2,000 fərqli valyutalı (AZN, USD, EUR) bank hesabı yaradan dinamik PL/SQL skripti.
 
-3. **`03_function_procedures.txt` (Core Business Logic):** * `fnc_convert_currency`: Valyutaların real məzənnəyə uyğun çarpaz konvertasiyasını aparan funksiya.
+3. **`03_function_procedures.sql` (Core Business Logic):** * `fnc_convert_currency`: Valyutaların real məzənnəyə uyğun çarpaz konvertasiyasını aparan funksiya.
    * `prc_make_transfer`: Hesablar arası transfer əməliyyatını icra edən kritik prosedur.
    * `trg_account_balance_audit`: Balans dəyişikliklərini kimin, nə vaxt və hansı dəyərlərlə etdiyini izləyən `AFTER UPDATE` triggeri.
 
-4. **`04_analytics_report.txt` (Advanced Analytics):** Müştərilərin bütün hesablarını vahid valyutaya (AZN) gətirən, aktivlik statusunu təyin edən və `DENSE_RANK()` analitik funksiyası ilə maliyyə reytinqini çıxaran kompleks `vw_customer_financial_summary` view-su.
+4. **`04_analytics_report.sql` (Advanced Analytics):** Müştərilərin bütün hesablarını vahid valyutaya (AZN) gətirən, aktivlik statusunu təyin edən və `DENSE_RANK()` analitik funksiyası ilə maliyyə reytinqini çıxaran kompleks `vw_customer_financial_summary` view-su.
 
-5. **`05_indexing_tuning.txt` (Performance Tuning):** Unindexed FK probleminin (table lock) qarşısını alan B-Tree indeksləri və analitik sorğuları sürətləndirən kompozit indeks strategiyası. `EXPLAIN PLAN` vasitəsilə icra planlarının təhlili.
+5. **`05_indexing_tuning.sql` (Performance Tuning):** Unindexed FK probleminin (table lock) qarşısını alan B-Tree indeksləri və analitik sorğuları sürətləndirən kompozit indeks strategiyası. `EXPLAIN PLAN` vasitəsilə icra planlarının təhlili.
 
-6. **`06_security_access_control.txt` (DBA / RBAC Təhlükəsizlik):** `bank_admin` və `bank_teller` rollarının yaradılması, istifadəçilərə minimal imtiyaz prinsiplərinə (Principle of Least Privilege) uyğun hüquqların paylanması.
+6. **`06_security_access_control.sql` (DBA / RBAC Təhlükəsizlik):** `bank_admin` və `bank_teller` rollarının yaradılması, istifadəçilərə minimal imtiyaz prinsiplərinə (Principle of Least Privilege) uyğun hüquqların paylanması.
 
-7. **`07_unit_tests.txt` (Quality Assurance):** Sistemin biznes məntiqini və təhlükəsizlik qaydalarını yoxlayan PL/SQL unit test ssenariləri.
+7. **`07_unit_tests.sql` (Quality Assurance):** Sistemin biznes məntiqini və təhlükəsizlik qaydalarını yoxlayan PL/SQL unit test ssenariləri.
 
 ---
 
