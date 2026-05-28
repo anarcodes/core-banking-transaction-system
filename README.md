@@ -1,4 +1,4 @@
-# 🏛️ Core Banking PL/SQL Database Framework
+# 🏛️ Core Banking Transaction System
 
 Bu layihə, bank sektoru üçün hazırlanmış peşəkar, təhlükəsiz və yüksək performanslı verilənlər bazası arxitekturasını özündə cəmləşdirən bir PL/SQL framework-üdür. Layihə daxilində çoxlu valyutalı hesab idarəetməsi, qarşılıqlı kilidlənmənin (deadlock) qarşısını alan pul köçürmə mexanizmləri, rol əsaslı təhlükəsizlik (RBAC), avtomatik audit loglaşdırma və qabaqcıl analitik hesabatlar tətbiq olunmuşdur.
 
